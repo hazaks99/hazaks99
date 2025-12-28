@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Starter index.html — simple, accessible, responsive template" />
+  <title>Welcome</title>
+
+  <!-- Basic styles -->
+  <style>
+    :root{
+      --bg: #0f172a;
+      --card: #0b1220;
+      --text: #e6eef8;
+      --accent: #7dd3fc;
+      --radius: 10px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg, #071029 0%, #071b2a 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      box-sizing:border-box;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      padding:2rem;
+      border-radius:var(--radius);
+      max-width:900px;
+      width:100%;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:1rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.4rem;
+      letter-spacing:-0.01em;
+    }
+
+    p.lead{
+      margin:0.5rem 0 1.25rem;
+      color: #cfeeff;
+      opacity:0.9;
+    }
+
+    nav a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      margin-left:0.75rem;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:1rem;
+      margin-top:1rem;
+    }
+
+    .card-item{
+      background:var(--card);
+      padding:1rem;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    footer{
+      margin-top:1.25rem;
+      font-size:0.85rem;
+      color: #9fbadf;
+      opacity:0.9;
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:520px){
+      header{flex-direction:column; align-items:flex-start}
+      nav{margin-top:0.5rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main class="card" role="main" aria-labelledby="page-title">
+      <header>
+        <div>
+          <h1 id="page-title">Starter index.html</h1>
+          <p class="lead">A small, accessible, responsive starter page — edit as needed.</p>
+        </div>
+
+        <nav aria-label="Primary">
+          <a href="#" onclick="alert('Home')">Home</a>
+          <a href="#" onclick="alert('Docs')">Docs</a>
+          <a href="#" onclick="alert('Contact')">Contact</a>
+        </nav>
+      </header>
+
+      <section class="grid" aria-label="Features">
+        <article class="card-item">
+          <h2 style="margin-top:0;font-size:1.05rem">Fast to start</h2>
+          <p style="margin:0.5rem 0 0">Simple markup and inline CSS — copy this file into your project and begin editing.</p>
+        </article>
+
+        <article class="card-item">
+          <h2 style="margin-top:0;font-size:1.05rem">Accessible</h2>
+          <p style="margin:0.5rem 0 0">Includes ARIA labels and proper heading structure for screen readers.</p>
+        </article>
+
+        <article class="card-item">
+          <h2 style="margin-top:0;font-size:1.05rem">Responsive</h2>
+          <p style="margin:0.5rem 0 0">Layout adapts to small screens using a simple grid and media queries.</p>
+        </article>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> Your Project</div>
+        <div>
+          Built with ♥ — <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" style="color:var(--accent)">HTML</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Small script: update year and add keyboard focus outline improvement
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function(){
+      // Show focus outlines only when navigating via keyboard
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
